@@ -36,3 +36,6 @@
     </tr>
     <?php endforeach; ?>
 </table>
+<?php
+    echo $this->Paginator->numbers(array('first'=>'首页', 'last'=>'尾页'));
+?>

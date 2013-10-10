@@ -5,12 +5,17 @@
 class PostsController extends AppController
 {
 	public $name = 'Posts';
-	public $helpers = array('Html' ,'Form');
-	public $components = array('Session');
+	public $helpers = array('Html', 'Form');
+	public $components = array('Session', 'Paginator');
+	public $paginate = array('limit' => 2 );
 
 	public function index()
 	{
-		$this->set('posts', $this->Post->find('all'));
+		$this->Paginator->settings = $this->paginate;
+        
+	    $data = $this->Paginator->paginate('Post');
+	    // $this->set('posts', $this->Post->find('all'));
+	    $this->set('posts', $data);
 	}
 
 	public function view($id = null)
