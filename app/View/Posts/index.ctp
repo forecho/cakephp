@@ -1,11 +1,12 @@
 <!-- File: /app/View/Posts/index.ctp -->
 <h1>Blog posts</h1>
+<p><?php echo $this->Html->link('新建文章', array('controller' => 'posts', 'action' => 'add')) ?></p>
 <table>
     <tr>
-        <th>Id</th>
-        <th>Title</th>
-        <th>Created</th>
-        <th>Action</th>
+        <th><?php echo $this->Paginator->sort('id', 'ID'); ?></th>
+        <th><?php echo $this->Paginator->sort('title', '标题'); ?></th>
+        <th><?php echo $this->Paginator->sort('created', '创建时间'); ?></th>
+        <th>操作</th>
     </tr>
  
 <!-- Here is where we loop through our $posts array, printing out post info -->
